@@ -1,108 +1,381 @@
-# vinext-starter
+<div align="center">
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+# Umme Fatima Sadia Hossain  
+## AI & Backend Software Engineer
 
-## Prerequisites
+**Building responsible, evidence-grounded software systems for healthcare, public services and resilient communities.**
 
-- Node.js `>=22.13.0`
-- Linux with `flock`, `curl`, and GNU `timeout`
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-View_Website-111827?style=for-the-badge&logo=vercel&logoColor=white)](https://umme-fatima-portfolio.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-Jxxy123-181717?style=for-the-badge&logo=github)](https://github.com/Jxxy123)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Umme_Fatima_Sadia_Hossain-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/umme-fatima-sadia-hossain/)
 
-## Sites Lifecycle
+</div>
 
-The Sites lifecycle CLI runs the locked dependency install before returning this checkout. Edit the source under `app/`, then checkpoint when a coherent milestone is ready to inspect or share. The remote Sites builder runs `npm run build` against the pushed commit. Do not repeat install or build as a normal pre-checkpoint step.
+---
 
-This starter does not use `wrangler.jsonc`.
+## Overview
 
-`install:ci` is intentionally a single, non-retrying `npm ci`. It refuses a concurrent install for the same project, consumes a matching image-seeded npm cache with `--prefer-offline` while retaining registry fallback for a missing cache object, otherwise downloads and verifies the complete vinext tarball recorded in `package-lock.json`, limits npm to one socket, and terminates a stalled install. `build` applies a short timeout and then validates the Sites artifact. These helpers target Linux and use GNU `timeout`; they are not native macOS scripts.
+This repository contains my personal software-engineering portfolio.
 
-Scripts that need writable project-scoped home, npm, XDG, and temporary paths use `scripts/sites-env.sh`. The `dev` and `start` scripts honor the caller's runtime environment and keep Wrangler logs inside the checkout. The generated `.sites-runtime/` directory is disposable and ignored by Git.
+The portfolio presents my work across:
 
-## Included Shape
+- AI-assisted decision-support systems
+- Backend and API engineering
+- Responsible and human-supervised AI
+- Retrieval-augmented generation
+- Multi-agent workflows
+- Document-processing systems
+- Data, cloud and full-stack development
 
-- edit site code under `app/`
-- `app/chatgpt-auth.ts` provides optional dispatch-owned ChatGPT sign-in helpers
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/index.ts` reads the D1 binding from the Cloudflare Worker environment
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+Instead of presenting projects only through screenshots or technology lists, the portfolio uses a case-study format that explains:
 
-## Workspace Auth Headers
+> **Problem → Engineering contribution → Architecture → Evidence → Limitations**
 
-OpenAI workspace sites can read the current user's email from
-`oai-authenticated-user-email`.
+My current focus is designing software systems in which AI outputs remain traceable, evidence-grounded and appropriately supervised by qualified humans.
 
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
+---
 
-Treat the full name as optional and fall back to email when it is absent:
+## Live Portfolio
 
-```tsx
-import { headers } from "next/headers";
+### [Visit umme-fatima-portfolio.vercel.app](https://umme-fatima-portfolio.vercel.app)
 
-export default async function Home() {
-  const requestHeaders = await headers();
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
+The deployed portfolio includes:
 
-  const displayName = fullName ?? email;
-  // ...
-}
+- Selected engineering case studies
+- Research interests and responsible-AI direction
+- Academic and professional journey
+- Technical skills
+- Hackathon achievements
+- Certificates and credentials
+- Downloadable résumé
+- GitHub, LinkedIn and contact links
+
+<!--
+Portfolio screenshot can be added later.
+
+1. Save the screenshot as: public/portfolio-preview.png
+2. Remove the comment markers around the line below.
+
+![Portfolio website preview](public/portfolio-preview.png)
+-->
+
+---
+
+## Featured Engineering Work
+
+### 1. SenoNav AI
+
+**Healthcare AI · Document intelligence · Care navigation**
+
+An evidence-aware breast-cancer care-navigation prototype designed to organise fragmented medical reports into clearer referral-preparation information.
+
+**Engineering focus:**
+
+- PDF and image-document processing
+- Structured information extraction
+- Evidence-linked output
+- Referral-readiness assessment
+- Multilingual interaction
+- Human-review and safety boundaries
+
+**Technologies:** Python, Streamlit, RAG, Qwen, AMD ROCm, Pydantic
+
+[View repository](https://github.com/Jxxy123/senonav-ai)
+
+---
+
+### 2. GharDisha AI
+
+**Public-service AI · Human-in-the-loop systems**
+
+A responsible-AI assistant designed to help disaster-displaced families organise housing circumstances, documents and supporting evidence before official human verification.
+
+The system does not approve benefits or replace government decision-makers. It prepares information for authorised review.
+
+**Engineering focus:**
+
+- React and FastAPI architecture
+- Document and image input
+- Curated policy grounding
+- Multilingual interaction
+- Readiness scoring
+- Source traceability
+- Explicit human-authority boundaries
+
+**Technologies:** React, FastAPI, Python, RAG, Speechmatics
+
+[View repository](https://github.com/Jxxy123/ghardisha-ai)  
+[View Devpost case study](https://devpost.com/software/ghardisha-ai)
+
+---
+
+### 3. Sentinel Web-Risk Intelligence
+
+**AI orchestration · Backend engineering · Web intelligence**
+
+A third-party risk-intelligence prototype that coordinates specialised agents to gather public web evidence, evaluate risk signals and produce structured reports for human review.
+
+**Engineering focus:**
+
+- FastAPI backend services
+- Next.js interface
+- Multi-agent task orchestration
+- Live public-web data retrieval
+- Structured risk dimensions
+- Source-supported reporting
+- Docker-based development
+
+**Technologies:** Next.js, FastAPI, CrewAI, Bright Data, ChromaDB, Docker
+
+[View repository](https://github.com/Jxxy123/sentinel-web-risk-intelligence)
+
+---
+
+### 4. Gamified Habit Tracker
+
+**Final-year software-engineering project · Full-stack development**
+
+A research-informed productivity system combining configurable habit tracking with points, streaks, achievements, reminders and progress visualisation.
+
+**Engineering focus:**
+
+- Layered Django architecture
+- Secure user authentication
+- Habit and achievement domain logic
+- PostgreSQL persistence
+- Data visualisation
+- Automated testing
+- Docker and CI/CD support
+
+**Technologies:** Django, Python, PostgreSQL, Chart.js, Docker
+
+---
+
+## Additional Projects
+
+The portfolio also presents selected experimental and hackathon projects:
+
+| Project | Area |
+|---|---|
+| [MyBENTENG](https://github.com/Jxxy123/MyBENTENG) | Geospatial intelligence and flood resilience |
+| [AgriNexus Operations Hub](https://github.com/Jxxy123/agrinexus-operations-hub) | Food-security and multi-agent operations |
+| [NASA Vibe Station](https://github.com/Jxxy123/nasa-vibe-station) | Scientific interfaces and 3D visualisation |
+| [Vanguard Milano](https://github.com/Jxxy123/vanguard-milano) | Logistics disruption analysis |
+| [Galaxium Travels: Chronos](https://github.com/Jxxy123/Galaxium-Travels-Chronos) | Distributed-system and domain-modelling experiment |
+
+These projects are labelled according to their current maturity, including research prototype, hackathon build or experimental build.
+
+---
+
+## Portfolio Technology Stack
+
+### Frontend
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Responsive CSS
+- Accessible semantic HTML
+
+### Tooling and Runtime
+
+- Node.js
+- Vite
+- Vinext
+- ESLint
+- npm
+- Git and GitHub
+
+### Quality and Discoverability
+
+- Automated rendered-page test
+- Production build validation
+- SEO metadata
+- `robots.txt` generation
+- XML sitemap generation
+- Responsive navigation
+- Accessible labels and page structure
+
+### Deployment
+
+- Vercel
+- GitHub-based source control
+
+---
+
+## Design Principles
+
+### Evidence over hype
+
+Projects are presented with their implemented functionality, technology choices and available evidence rather than unsupported production-scale claims.
+
+### Responsible AI
+
+High-stakes projects distinguish between AI-generated assistance and decisions that must remain under qualified human authority.
+
+### Engineering clarity
+
+Each flagship project explains the problem, system boundary, engineering contribution and current prototype status.
+
+### Accessibility
+
+The interface uses semantic sections, descriptive alternative text, accessible navigation labels and keyboard-compatible links.
+
+### Progressive enhancement
+
+Animations support the visual experience without being required to access the main portfolio content.
+
+---
+
+## Repository Structure
+
+```text
+umme-fatima-portfolio/
+├── app/
+│   ├── page.tsx          # Portfolio content and page structure
+│   ├── globals.css       # Visual design and responsive styling
+│   ├── layout.tsx        # Root layout and metadata
+│   ├── robots.ts         # Search-engine crawling configuration
+│   └── sitemap.ts        # Sitemap generation
+│
+├── public/
+│   ├── certificates/     # Credential images and documents
+│   ├── resume/           # Downloadable résumé
+│   ├── hero-portrait.png
+│   └── favicon.svg
+│
+├── tests/                # Rendered-page verification
+├── scripts/              # Installation and build validation scripts
+├── db/                   # Optional data-layer scaffolding
+├── types/                # Shared TypeScript definitions
+├── package.json
+└── README.md
 ```
 
-## Optional Dispatch-Owned ChatGPT Sign-In
+---
 
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
+## Running Locally
 
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
+### Prerequisites
 
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
+- Node.js 22.13 or later
+- npm
+- Git
+- Linux, macOS or Windows with WSL/Git Bash for the repository helper scripts
 
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
+### 1. Clone the repository
 
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
+```bash
+git clone https://github.com/Jxxy123/umme-fatima-portfolio.git
+cd umme-fatima-portfolio
+```
 
-## Diagnostic Commands
+### 2. Install dependencies
 
-- `npm run install:ci`: perform the one bounded lockfile install
-- `npm run dev`: start the Vite/Vinext development server
-- `npm run build`: build and validate the deployable Sites artifact
-- `npm run start`: start the built Vinext application
-- `npm test`: build, validate, and verify the rendered development-preview metadata
-- `npm run validate:artifact`: recheck an existing artifact's manifest and ESM `default.fetch` export
-- `npm run db:generate`: generate Drizzle migrations after schema changes
+```bash
+npm install
+```
 
-Use build and validation commands for targeted diagnosis after a remote failure, not as part of the normal checkpoint path.
+### 3. Start the development server
 
-The timeout defaults can be overridden for a controlled canary with `SITES_INSTALL_TIMEOUT`, `SITES_INSTALL_KILL_AFTER`, `SITES_BUILD_TIMEOUT`, and `SITES_BUILD_KILL_AFTER`. A timeout fails the command; the helpers never retry an unchanged install or build.
+```bash
+npm run dev
+```
 
-## Learn More
+Open the local address shown in the terminal.
 
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+---
+
+## Available Commands
+
+```bash
+# Start the development environment
+npm run dev
+
+# Run ESLint
+npm run lint
+
+# Build and validate the deployable application
+npm run build
+
+# Build using Next.js directly
+npm run build:next
+
+# Run the rendered-page test
+npm test
+
+# Validate an existing build artifact
+npm run validate:artifact
+```
+
+---
+
+## Current Status
+
+This portfolio is actively maintained.
+
+Current improvement areas include:
+
+- Adding more measurable project-evaluation results
+- Expanding automated testing
+- Publishing technical architecture case studies
+- Improving project documentation
+- Adding open-source contribution evidence
+- Continuing accessibility and performance review
+
+---
+
+## Education and Direction
+
+I hold a dual-award **BSc (Hons) in Software Engineering** from:
+
+- Asia Pacific University of Technology & Innovation
+- De Montfort University
+
+I am preparing for graduate study in Artificial Intelligence or Data Science while pursuing opportunities in:
+
+- AI engineering
+- Backend software engineering
+- Applied AI
+- Responsible-AI research
+- Graduate software-engineering roles
+
+---
+
+## Recognition
+
+- USAII Global AI Hackathon 2026 — Undergraduate Finalist
+- AMD Developer Hackathon Act II — Project submission
+- Web Data Unlocked Hackathon — Project submission
+- GDG UTM Build with AI — Participation and mastery
+- Cisco AI Technical Practitioner
+- Cisco AI Business Practitioner
+
+---
+
+## Attribution
+
+This repository began from a Vinext-based starter structure and was subsequently customised into a personal engineering portfolio.
+
+The portfolio-specific information architecture, written content, project presentation, visual identity, assets, responsive styling, metadata and professional positioning were adapted for this website.
+
+Third-party frameworks, libraries and tools remain subject to their respective licences.
+
+---
+
+## Connect
+
+- **Portfolio:** [umme-fatima-portfolio.vercel.app](https://umme-fatima-portfolio.vercel.app)
+- **GitHub:** [github.com/Jxxy123](https://github.com/Jxxy123)
+- **LinkedIn:** [Umme Fatima Sadia Hossain](https://www.linkedin.com/in/umme-fatima-sadia-hossain/)
+
+---
+
+<div align="center">
+
+### Responsible AI · Backend Systems · Evidence-Grounded Engineering
+
+Built and maintained by **Umme Fatima Sadia Hossain**
+
+</div>
